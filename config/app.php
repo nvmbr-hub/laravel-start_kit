@@ -182,6 +182,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
+        'BlogController' => App\Http\Controllers\BlogController::class,
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
