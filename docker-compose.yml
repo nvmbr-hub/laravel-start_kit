@@ -1,5 +1,5 @@
 services:
-    laravel.test:
+    laravel:
         build:
             context: ./vendor/laravel/sail/runtimes/8.3
             dockerfile: Dockerfile
@@ -28,6 +28,7 @@ services:
             - mailpit
             - selenium
             - soketi
+        container_name: app
     mysql:
         image: 'mysql/mysql-server:8.0'
         ports:
