@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,9 +13,13 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['namespace' => 'Main'], function () {
+    Route::get('/', [App\Http\Controllers\Main\IndexController::class, '__invoke']);
+});
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function (){
+    Route::group(['namespace' => 'Main'], function () {
+        Route::get('/', [App\Http\Controllers\Main\IndexController::class, '__invoke']);
+    });
 });
 
 Route::get('/blog', 'BlogController@index');
