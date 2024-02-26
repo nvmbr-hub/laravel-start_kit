@@ -18,9 +18,10 @@ Route::group(['namespace' => 'Main'], function () {
 });
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function (){
     Route::group(['namespace' => 'Main'], function () {
-        Route::get('/', [App\Http\Controllers\Main\IndexController::class, '__invoke']);
+        Route::get('/', [\App\Http\Controllers\Admin\Post\IndexController::class, '__invoke']);
     });
 });
+
 
 Route::get('/blog', 'BlogController@index');
 Auth::routes();
